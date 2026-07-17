@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CapPop Studio — 캡팝 스튜디오</title>
+<meta name="description" content="캡팝 스튜디오(CapPop Studio)는 모바일 게임을 만드는 인디 게임 스튜디오입니다. 대표작: 캡팝: 키캡 클리커.">
+<style>
+  :root{
+    --bg:#0e1016; --card:#171a23; --line:#242938;
+    --text:#eef1f8; --muted:#9aa3b8; --accent:#7b6cf0; --accent2:#4cc2a8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:-apple-system,"Pretendard","Malgun Gothic",sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+  header{
+    position:sticky;top:0;z-index:10;
+    backdrop-filter:blur(12px);background:rgba(14,16,22,.7);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px}
+  .brand img{width:32px;height:32px;border-radius:8px}
+  .nav a.cta{font-size:14px;color:var(--muted)}
+
+  .hero{padding:96px 0 72px;text-align:center;position:relative;overflow:hidden}
+  .hero::before{
+    content:"";position:absolute;inset:-40% 0 auto 0;height:520px;
+    background:radial-gradient(600px 300px at 50% 0,rgba(123,108,240,.28),transparent 70%);
+    pointer-events:none;
+  }
+  .badge{
+    display:inline-block;font-size:13px;color:var(--accent2);
+    border:1px solid var(--line);border-radius:999px;padding:6px 14px;margin-bottom:22px;
+  }
+  .hero h1{font-size:clamp(34px,6vw,58px);font-weight:900;letter-spacing:-.02em;line-height:1.1}
+  .hero h1 .g{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{color:var(--muted);font-size:18px;margin:20px auto 0;max-width:560px}
+
+  .section{padding:56px 0}
+  .section h2{font-size:24px;font-weight:800;margin-bottom:24px}
+
+  .game{
+    display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:center;
+    background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px;
+  }
+  .game img{width:120px;height:120px;border-radius:26px;box-shadow:0 8px 30px rgba(0,0,0,.4)}
+  .game h3{font-size:22px;font-weight:800}
+  .game .tag{color:var(--accent2);font-size:13px;font-weight:700;margin-bottom:6px}
+  .game p{color:var(--muted);margin-top:8px}
+  @media(max-width:560px){.game{grid-template-columns:1fr;text-align:center}.game img{margin:0 auto}}
+
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:700px){.grid{grid-template-columns:1fr}}
+  .cardv{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+  .cardv h4{font-size:16px;margin-bottom:6px}
+  .cardv p{color:var(--muted);font-size:14px}
+
+  .contact{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:32px;text-align:center}
+  .contact a.mail{
+    display:inline-block;margin-top:12px;font-size:20px;font-weight:800;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+
+  footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-size:13px}
+  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .foot a{color:var(--muted)}
+  .foot a:hover{color:var(--text)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <div class="brand"><img src="icon.png" alt="CapPop"> CapPop Studio</div>
+    <a class="cta" href="#contact">문의하기</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <span class="badge">Indie Game Studio</span>
+      <h1>톡톡 누르는 재미,<br><span class="g">캡팝 스튜디오</span></h1>
+      <p>CapPop Studio는 누구나 편하게 즐기는 힐링 모바일 게임을 만드는 인디 게임 스튜디오입니다.</p>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <h2>우리가 만든 게임</h2>
+    <div class="game">
+      <img src="icon.png" alt="캡팝: 키캡 클리커 아이콘">
+      <div>
+        <div class="tag">캐주얼 · 클리커</div>
+        <h3>캡팝: 키캡 클리커</h3>
+        <p>키캡을 톡톡 눌러 점수를 모으고, 다양한 키캡을 뽑아 수집하는 힐링 클리커 게임. 랭킹·길드·거래소로 다른 유저와 함께 즐겨보세요.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <h2>스튜디오 소개</h2>
+    <div class="grid">
+      <div class="cardv"><h4>🎮 힐링 게임플레이</h4><p>부담 없이 즐기는 간단하고 중독적인 캐주얼 게임을 지향합니다.</p></div>
+      <div class="cardv"><h4>🎨 아기자기한 디자인</h4><p>귀엽고 감각적인 비주얼과 실제 기계식 키보드 같은 타건음을 담습니다.</p></div>
+      <div class="cardv"><h4>🌏 함께하는 재미</h4><p>랭킹·길드·유저 간 거래 등 소셜 기능으로 더 오래 즐길 수 있게 만듭니다.</p></div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="contact">
+    <h2>문의</h2>
+    <div class="contact">
+      <p>제휴·문의·개인정보 관련 요청은 아래 이메일로 연락 주세요.</p>
+      <a class="mail" href="mailto:cappopstudio26@gmail.com">cappopstudio26@gmail.com</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>© 2026 CapPop Studio · 캡팝 스튜디오</div>
+    <div>
+      <a href="https://early-riverbed-495.notion.site/3a07468a8eaf8126a7f0daac5f4bff72" target="_blank" rel="noopener">개인정보처리방침</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
