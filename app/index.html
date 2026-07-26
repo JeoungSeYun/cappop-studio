@@ -124,12 +124,21 @@
   // ── 설정 ─────────────────────────────────────────────────────────
   var PLAY_ID  = "com.keycapclicker.game";
   var IOS_URL  = "https://apps.apple.com/app/id6791143065";   // 국가 자동 감지 형태
-  var INSTAGRAM = "https://instagram.com/";   // ← 계정 주소로 교체
-  var TIKTOK    = "https://tiktok.com/";      // ← 계정 주소로 교체
+  var INSTAGRAM = "https://www.instagram.com/cap_pop.studio/";
+  var TIKTOK    = "https://www.tiktok.com/@cap_pop.studio";
   // ─────────────────────────────────────────────────────────────────
 
-  document.getElementById("ig").href = INSTAGRAM;
-  document.getElementById("tt").href = TIKTOK;
+  // 주소가 비어 있으면 해당 버튼은 숨긴다 (깨진 링크 방지).
+  function social(id, url){
+    var el = document.getElementById(id);
+    if (url) el.href = url; else el.remove();
+  }
+  social("ig", INSTAGRAM);
+  social("tt", TIKTOK);
+  if (!INSTAGRAM && !TIKTOK) {
+    document.querySelector(".divider").remove();
+    document.querySelector(".socials").remove();
+  }
 
   // 어디서 왔는지 표시 — 링크 뒤에 ?from=ig 처럼 붙이면 Play Console 유입 통계에 잡힘
   var from = (new URLSearchParams(location.search).get("from") || "bio").slice(0, 24);
