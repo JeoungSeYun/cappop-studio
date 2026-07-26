@@ -2,142 +2,182 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CapPop Studio — 캡팝 스튜디오</title>
-<meta name="description" content="캡팝 스튜디오(CapPop Studio)는 모바일 게임을 만드는 인디 게임 스튜디오입니다. 대표작: 캡팝: 키캡 클리커.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>캡팝: 키캡 클리커 — 다운로드</title>
+<meta name="description" content="키캡을 톡톡 눌러 점수를 모으고, 다양한 키캡을 뽑아 수집하는 힐링 클리커 게임. 지금 다운로드하세요.">
+<meta name="theme-color" content="#0e1016">
 <meta name="google-site-verification" content="t35H01Q0rKDrft4M3Gy_Qn0xXqWn6LM0yONOTMEmawE" />
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="캡팝: 키캡 클리커">
+<meta property="og:description" content="손끝에서 터지는 타건의 쾌감. 키캡 뽑고 모으는 힐링 클리커 게임">
+<meta property="og:image" content="https://jeoungseyun.github.io/cappop-studio/feature.png">
+<meta property="og:url" content="https://cappop.co.kr/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="icon.png">
+
 <style>
   :root{
     --bg:#0e1016; --card:#171a23; --line:#242938;
     --text:#eef1f8; --muted:#9aa3b8; --accent:#7b6cf0; --accent2:#4cc2a8;
   }
-  *{box-sizing:border-box;margin:0;padding:0}
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
   body{
     font-family:-apple-system,"Pretendard","Malgun Gothic",sans-serif;
-    background:var(--bg);color:var(--text);line-height:1.65;
+    background:var(--bg);color:var(--text);line-height:1.6;
     -webkit-font-smoothing:antialiased;
+    min-height:100dvh;display:flex;flex-direction:column;align-items:center;
+    padding:calc(env(safe-area-inset-top) + 40px) 20px calc(env(safe-area-inset-bottom) + 32px);
+    position:relative;overflow-x:hidden;
+  }
+  body::before{
+    content:"";position:fixed;inset:-30% -20% auto -20%;height:70vh;pointer-events:none;
+    background:radial-gradient(60% 50% at 50% 0,rgba(123,108,240,.30),transparent 70%);
   }
   a{color:inherit;text-decoration:none}
-  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  .wrap{width:100%;max-width:440px;position:relative;z-index:1;text-align:center}
 
-  header{
-    position:sticky;top:0;z-index:10;
-    backdrop-filter:blur(12px);background:rgba(14,16,22,.7);
-    border-bottom:1px solid var(--line);
+  .icon{
+    width:120px;height:120px;border-radius:28px;display:block;margin:0 auto 22px;
+    box-shadow:0 18px 50px rgba(123,108,240,.35),0 4px 16px rgba(0,0,0,.5);
+    animation:float 4s ease-in-out infinite;
   }
-  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px}
-  .brand img{width:32px;height:32px;border-radius:8px}
-  .nav a.cta{font-size:14px;color:var(--muted)}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  @media(prefers-reduced-motion:reduce){.icon{animation:none}}
 
-  .hero{padding:96px 0 72px;text-align:center;position:relative;overflow:hidden}
-  .hero::before{
-    content:"";position:absolute;inset:-40% 0 auto 0;height:520px;
-    background:radial-gradient(600px 300px at 50% 0,rgba(123,108,240,.28),transparent 70%);
-    pointer-events:none;
+  h1{font-size:30px;font-weight:900;letter-spacing:-.02em}
+  .studio{color:var(--muted);font-size:14px;margin-top:6px}
+  .tagline{color:var(--muted);font-size:16px;margin-top:14px;word-break:keep-all}
+
+  .actions{display:flex;flex-direction:column;gap:12px;margin-top:30px}
+  .btn{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    height:60px;border-radius:18px;font-size:17px;font-weight:800;
+    border:1px solid var(--line);background:var(--card);color:var(--text);
+    transition:transform .12s ease,filter .12s ease;
   }
-  .badge{
-    display:inline-block;font-size:13px;color:var(--accent2);
-    border:1px solid var(--line);border-radius:999px;padding:6px 14px;margin-bottom:22px;
-  }
-  .hero h1{font-size:clamp(34px,6vw,58px);font-weight:900;letter-spacing:-.02em;line-height:1.1}
-  .hero h1 .g{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
-  .hero p{color:var(--muted);font-size:18px;margin:20px auto 0;max-width:560px}
-  .hero-cta{
-    display:inline-block;margin-top:28px;padding:16px 34px;border-radius:999px;
-    font-weight:800;font-size:17px;color:#fff;
+  .btn:active{transform:scale(.975)}
+  .btn.primary{
     background:linear-gradient(100deg,var(--accent),#6c5ce0);
+    border-color:transparent;color:#fff;
     box-shadow:0 10px 30px rgba(123,108,240,.38);
-    transition:transform .12s ease;
   }
-  .hero-cta:active{transform:scale(.97)}
+  .btn.soon{opacity:.55}
+  .btn svg{width:22px;height:22px;flex:none}
+  .btn .sub{font-size:12px;font-weight:600;opacity:.75;display:block}
+  .btn .stack{display:flex;flex-direction:column;line-height:1.25;align-items:flex-start}
 
-  .section{padding:56px 0}
-  .section h2{font-size:24px;font-weight:800;margin-bottom:24px}
+  .divider{display:flex;align-items:center;gap:12px;margin:26px 0 18px;color:var(--muted);font-size:12px}
+  .divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--line)}
 
-  .game{
-    display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:center;
-    background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px;
+  .socials{display:flex;gap:10px;justify-content:center}
+  .socials a{
+    flex:1;height:52px;border-radius:16px;background:var(--card);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;gap:8px;font-size:14px;font-weight:700;
+    transition:transform .12s ease,border-color .12s ease;
   }
-  .game img{width:120px;height:120px;border-radius:26px;box-shadow:0 8px 30px rgba(0,0,0,.4)}
-  .game h3{font-size:22px;font-weight:800}
-  .game .tag{color:var(--accent2);font-size:13px;font-weight:700;margin-bottom:6px}
-  .game p{color:var(--muted);margin-top:8px}
-  @media(max-width:560px){.game{grid-template-columns:1fr;text-align:center}.game img{margin:0 auto}}
+  .socials a:active{transform:scale(.97)}
+  .socials svg{width:18px;height:18px}
 
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  @media(max-width:700px){.grid{grid-template-columns:1fr}}
-  .cardv{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
-  .cardv h4{font-size:16px;margin-bottom:6px}
-  .cardv p{color:var(--muted);font-size:14px}
+  .qr{margin-top:26px;padding:22px;background:var(--card);border:1px solid var(--line);border-radius:20px;display:none}
+  .qr img{width:150px;height:150px;background:#fff;padding:10px;border-radius:12px;display:block;margin:0 auto 12px}
+  .qr p{color:var(--muted);font-size:13px}
+  body.is-desktop .qr{display:block}
 
-  .contact{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:32px;text-align:center}
-  .contact a.mail{
-    display:inline-block;margin-top:12px;font-size:20px;font-weight:800;
-    background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;
-  }
-
-  footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-size:13px}
-  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
-  .foot a{color:var(--muted)}
-  .foot a:hover{color:var(--text)}
+  footer{margin-top:32px;color:var(--muted);font-size:12px;display:flex;flex-direction:column;gap:8px}
+  footer a{text-decoration:underline;text-underline-offset:3px}
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap nav">
-    <div class="brand"><img src="icon.png" alt="CapPop"> CapPop Studio</div>
-    <a class="cta" href="#contact">문의하기</a>
+<div class="wrap">
+  <img class="icon" src="icon.png" alt="캡팝: 키캡 클리커 아이콘">
+  <h1>캡팝: 키캡 클리커</h1>
+  <div class="studio">CapPop Studio</div>
+  <p class="tagline">손끝에서 터지는 타건의 쾌감 🎹<br>키캡 뽑고, 모으고, 자랑하세요</p>
+
+  <div class="actions" id="actions"></div>
+
+  <div class="divider">더 보기</div>
+  <div class="socials">
+    <a id="ig" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+      Instagram
+    </a>
+    <a id="tt" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.8a4.9 4.9 0 0 1-1.2-3.2h-3v13a2.8 2.8 0 1 1-2-2.7V9.8a5.8 5.8 0 1 0 5 5.7V9.3a7.9 7.9 0 0 0 4.6 1.5V7.8a4.9 4.9 0 0 1-3.4-2z"/></svg>
+      TikTok
+    </a>
   </div>
-</header>
 
-<main>
-  <section class="hero">
-    <div class="wrap">
-      <span class="badge">Indie Game Studio</span>
-      <h1>톡톡 누르는 재미,<br><span class="g">캡팝 스튜디오</span></h1>
-      <p>CapPop Studio는 누구나 편하게 즐기는 힐링 모바일 게임을 만드는 인디 게임 스튜디오입니다.</p>
-      <a class="hero-cta" href="app/">캡팝: 키캡 클리커 받기</a>
-    </div>
-  </section>
-
-  <section class="section wrap">
-    <h2>우리가 만든 게임</h2>
-    <div class="game">
-      <img src="icon.png" alt="캡팝: 키캡 클리커 아이콘">
-      <div>
-        <div class="tag">캐주얼 · 클리커</div>
-        <h3>캡팝: 키캡 클리커</h3>
-        <p>키캡을 톡톡 눌러 점수를 모으고, 다양한 키캡을 뽑아 수집하는 힐링 클리커 게임. 랭킹·길드·거래소로 다른 유저와 함께 즐겨보세요.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section wrap">
-    <h2>스튜디오 소개</h2>
-    <div class="grid">
-      <div class="cardv"><h4>🎮 힐링 게임플레이</h4><p>부담 없이 즐기는 간단하고 중독적인 캐주얼 게임을 지향합니다.</p></div>
-      <div class="cardv"><h4>🎨 아기자기한 디자인</h4><p>귀엽고 감각적인 비주얼과 실제 기계식 키보드 같은 타건음을 담습니다.</p></div>
-      <div class="cardv"><h4>🌏 함께하는 재미</h4><p>랭킹·길드·유저 간 거래 등 소셜 기능으로 더 오래 즐길 수 있게 만듭니다.</p></div>
-    </div>
-  </section>
-
-  <section class="section wrap" id="contact">
-    <h2>문의</h2>
-    <div class="contact">
-      <p>제휴·문의·개인정보 관련 요청은 아래 이메일로 연락 주세요.</p>
-      <a class="mail" href="mailto:cappopstudio26@gmail.com">cappopstudio26@gmail.com</a>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="wrap foot">
-    <div>© 2026 CapPop Studio · 캡팝 스튜디오</div>
-    <div>
-      <a href="https://early-riverbed-495.notion.site/3a07468a8eaf8126a7f0daac5f4bff72" target="_blank" rel="noopener">개인정보처리방침</a>
-    </div>
+  <div class="qr">
+    <img src="qr.png" alt="이 페이지 QR 코드">
+    <p>휴대폰 카메라로 스캔하면<br>바로 다운로드 페이지로 이동해요</p>
   </div>
-</footer>
+
+  <footer>
+    <div><a href="studio/">CapPop Studio 소개</a> · <a href="https://early-riverbed-495.notion.site/3a07468a8eaf8126a7f0daac5f4bff72" target="_blank" rel="noopener">개인정보처리방침</a></div>
+    <div>문의 <a href="mailto:cappopstudio26@gmail.com">cappopstudio26@gmail.com</a></div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  // ── 설정 ─────────────────────────────────────────────────────────
+  var PLAY_ID  = "com.keycapclicker.game";
+  var IOS_URL  = "https://apps.apple.com/app/id6791143065";   // 국가 자동 감지 형태
+  var INSTAGRAM = "https://www.instagram.com/cap_pop.studio/";
+  var TIKTOK    = "https://www.tiktok.com/@cap_pop.studio";
+  // ─────────────────────────────────────────────────────────────────
+
+  // 주소가 비어 있으면 해당 버튼은 숨긴다 (깨진 링크 방지).
+  function social(id, url){
+    var el = document.getElementById(id);
+    if (url) el.href = url; else el.remove();
+  }
+  social("ig", INSTAGRAM);
+  social("tt", TIKTOK);
+  if (!INSTAGRAM && !TIKTOK) {
+    document.querySelector(".divider").remove();
+    document.querySelector(".socials").remove();
+  }
+
+  // 어디서 왔는지 표시 — 링크 뒤에 ?from=ig 처럼 붙이면 Play Console 유입 통계에 잡힘
+  var from = (new URLSearchParams(location.search).get("from") || "bio").slice(0, 24);
+  var referrer = encodeURIComponent("utm_source=" + from + "&utm_medium=link&utm_campaign=social");
+  var playUrl = "https://play.google.com/store/apps/details?id=" + PLAY_ID + "&referrer=" + referrer;
+
+  var ua = navigator.userAgent || "";
+  var isIOS = /iPhone|iPad|iPod/i.test(ua) || (/Mac/.test(ua) && navigator.maxTouchPoints > 1);
+  var isAndroid = /Android/i.test(ua);
+  if (!isIOS && !isAndroid) document.body.classList.add("is-desktop");
+
+  var playSVG = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.3c-.3.3-.5.8-.5 1.4v16.6c0 .6.2 1.1.5 1.4l.1.1 9.3-9.3v-.2L3.7 2.2l-.1.1zm12.5 6.2L13 5.4 4.3 1.1c-.3-.2-.6-.2-.8-.1l12.6 7.5zM3.5 22.9c.2.1.5.1.8-.1L13 18.5l3.1-3.1-12.6 7.5zM17.4 9.2l-3.5 3.5 3.5 3.5 3.4-2c1-.6 1-1.6 0-2.2l-3.4-1.9z"/></svg>';
+  var appleSVG = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.8c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.9-3.5.9-.7 0-1.9-.8-3.1-.8-1.6 0-3 .9-3.8 2.4-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.9-2.3.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.5-1-2.5-3.8zM14.2 5.5c.6-.8 1.1-1.9 1-3-.9 0-2.1.6-2.8 1.4-.6.7-1.2 1.9-1 3 1 .1 2.1-.5 2.8-1.4z"/></svg>';
+
+  var actions = document.getElementById("actions");
+  function btn(cls, icon, main, sub, href){
+    var a = document.createElement("a");
+    a.className = "btn " + cls;
+    a.innerHTML = icon + '<span class="stack"><span>' + main + '</span>' +
+                  (sub ? '<span class="sub">' + sub + '</span>' : '') + '</span>';
+    if (href) { a.href = href; } else { a.setAttribute("role","button"); }
+    actions.appendChild(a);
+    return a;
+  }
+
+  if (isIOS) {
+    if (IOS_URL) {
+      btn("primary", appleSVG, "App Store에서 받기", "iPhone · iPad", IOS_URL);
+    } else {
+      btn("soon", appleSVG, "iOS 곧 출시!", "인스타그램에서 출시 소식 받기", INSTAGRAM);
+    }
+    btn("", playSVG, "Android로 받기", "Google Play", playUrl);
+  } else {
+    btn("primary", playSVG, "Google Play에서 받기", "Android", playUrl);
+    if (IOS_URL) btn("", appleSVG, "App Store에서 받기", "iPhone · iPad", IOS_URL);
+    else btn("soon", appleSVG, "iOS 곧 출시!", "준비 중이에요", INSTAGRAM);
+  }
+})();
+</script>
 </body>
 </html>
